@@ -29,4 +29,14 @@ Line Number:
 
 
 
+Task E - Sample Inventory
+Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database. Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
+
+File Name: BootStrap Data
+Line Number:
+*33 - added private final inhousePartRepo
+*35 - added inhousePartRepo a one of the parameters 
+*38 - added this.inhousepartrepopository
+*67-102- added 5 parts to part repo
+*104-115- added 5 products to product repo
 

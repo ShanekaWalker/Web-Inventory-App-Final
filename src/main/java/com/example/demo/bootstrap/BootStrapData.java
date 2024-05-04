@@ -1,8 +1,10 @@
 package com.example.demo.bootstrap;
 
+import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
+import com.example.demo.repositories.InhousePartRepository;
 import com.example.demo.repositories.OutsourcedPartRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -27,13 +29,14 @@ public class BootStrapData implements CommandLineRunner {
 
     private final PartRepository partRepository;
     private final ProductRepository productRepository;
-
     private final OutsourcedPartRepository outsourcedPartRepository;
+    private final InhousePartRepository inhousePartRepository;
 
-    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository) {
+    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository, InhousePartRepository inhousePartRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
         this.outsourcedPartRepository=outsourcedPartRepository;
+       this.inhousePartRepository=inhousePartRepository;
     }
 
     @Override
@@ -55,9 +58,61 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println(thePart.getCompanyName());
         */
+
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
+        }
+
+        if (inhousePartRepository.count()==0){
+            InhousePart decks = new InhousePart();
+            decks.setName("Decks");
+            decks.setPrice(67.99);
+            decks.setInv(10);
+            decks.setId(1);
+            inhousePartRepository.save(decks);
+
+            InhousePart trucks = new InhousePart();
+            trucks.setName("Trucks");
+            trucks.setPrice(75.99);
+            trucks.setInv(10);
+            trucks.setId(2);
+            inhousePartRepository.save(trucks);
+
+            InhousePart wheel = new InhousePart();
+            wheel.setName("Wheels");
+            wheel.setPrice(45.99);
+            wheel.setInv(10);
+            wheel.setId(3);
+            inhousePartRepository.save(wheel);
+
+            InhousePart bearings = new InhousePart();
+            bearings.setName("Bearings");
+            bearings.setPrice(15.99);
+            bearings.setInv(10);
+            bearings.setId(4);
+            inhousePartRepository.save(bearings);
+
+            InhousePart bushings = new InhousePart();
+            bushings.setName("Bushings");
+            bushings.setPrice(22.99);
+            bushings.setInv(10);
+            bushings.setId(5);
+            inhousePartRepository.save(bushings);
+        }
+
+        if (productRepository.count()==0){
+
+            Product ChocolateSkateboard = new Product("Chocolate Skateboard", 170.00, 5);
+            Product RetroSkateboard = new Product("Retro Skateboard", 120.00, 5);
+            Product PinkSkateboard = new Product("Pink Skateboard", 125.00, 5);
+            Product BlackSkateboard = new Product("Black Skateboard", 175.00, 5);
+            Product BlueSkateboard = new Product("Blue Skateboard", 155.00, 5);
+            productRepository.save(ChocolateSkateboard);
+            productRepository.save(RetroSkateboard);
+            productRepository.save(PinkSkateboard);
+            productRepository.save(BlackSkateboard);
+            productRepository.save(BlueSkateboard);
         }
 
         /*
