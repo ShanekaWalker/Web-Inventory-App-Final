@@ -40,3 +40,16 @@ Line Number:
 *67-102- added 5 parts to part repo
 *104-115- added 5 products to product repo
 
+Task F - Add "Buy Now Button"
+Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters: • The “Buy Now” button must be next to the buttons that update and delete products. • The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts. • Display a message that indicates the success or failure of a purchase.
+
+FileName: Mainscreen.html
+Line Number: 
+*88 added Buy Now button //not currently working
+
+FileName: AddProductController
+Line Number:
+*177-190- added decrement code and to return confirmation or error pages
+-added purchase confirmation and purchase error pages
+-added purchasecontroller 
+
