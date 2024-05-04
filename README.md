@@ -14,6 +14,18 @@ Line Numbers:
 21- Changed 'Parts' to Skateboard Parts
 53- Changed 'Products' to Complete Skateboards
 
+Task D - "About" Page
+Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+
+Added File about.html
+Line Number:
+6-10- added style to the page
+ 13-18 - Changed the title, added information about Skate Society, added link back to mainscreen.
+
+File: mainscreen.html
+Line Number:
+17-19 - added navigation to about.html from mainscreen
+- Added AboutPageController.java to help with linking from about to main page. 
 
 
 
