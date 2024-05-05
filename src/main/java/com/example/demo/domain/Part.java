@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import com.example.demo.validators.ValidMinMax;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
+@ValidMinMax
 public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +30,11 @@ public abstract class Part implements Serializable {
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
+
+    //Min and Max Inv added
+    @Min(value = 0, message = "Minimum inventory must be positive.")
+    int minInv;
+    int maxInv;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -48,6 +55,16 @@ public abstract class Part implements Serializable {
         this.name = name;
         this.price = price;
         this.inv = inv;
+    }
+
+    //Overloading parts with min and max inv
+    public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+        this.minInv = minInv;
+        this.maxInv = maxInv;
     }
 
     public long getId() {
@@ -81,6 +98,12 @@ public abstract class Part implements Serializable {
     public void setInv(int inv) {
         this.inv = inv;
     }
+
+    public int getMinInv() {return minInv;}
+    public void setMinInv(int minInv) {this.minInv = minInv;}
+    public int getMaxInv() {return maxInv;}
+    public void setMaxInv(int maxInv) {this.maxInv = maxInv;}
+
 
     public Set<Product> getProducts() {
         return products;

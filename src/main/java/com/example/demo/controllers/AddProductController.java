@@ -175,7 +175,7 @@ public class AddProductController {
     }
 
     @GetMapping("/Buy Now")
-    public String BuyNow(@RequestParam("productID") int theId, Model model){
+    public String purchaseproduct(@RequestParam("productID") int theId, Model model){
 
 
         ProductService productService = context.getBean(ProductServiceImpl.class);

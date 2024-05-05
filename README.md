@@ -53,3 +53,42 @@ Line Number:
 -added purchase confirmation and purchase error pages
 -added purchasecontroller 
 
+
+Task G - Track Min/Max of Inventory
+Modify the parts to track maximum and minimum inventory by doing the following: • Add additional fields to the part entity for maximum and minimum inventory. • Modify the sample inventory to include the maximum and minimum fields. • Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values. • Rename the file the persistent storage is saved to. • Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+
+FileName: Part.java
+Line Number:
+*32-35 added min and max inventory
+*58-65 - added overload constructor for min/max inventory
+*100-103 - added getters and setters for min/max inventory
+
+FileName: boostrapdata.java
+Line Number:
+*72-109 - added min/max inventory to all parts
+
+FileName: mainscreen.html
+Line Number:
+*49-51 -added min max to mainscreen
+*38-39 - added min/max table heading to page
+
+
+FileName: Inhousepartform.html
+Line Number:
+*24-25 - added min max to page
+
+FileName: OutsourcePartForm.html
+Line Number:
+*25-26 - added min max to page
+
+-Created files minmaxvalidator.java and validminmax.java under validators
+
+
+
+
+
+
+
+
+
+
