@@ -82,13 +82,34 @@ Line Number:
 *25-26 - added min max to page
 
 -Created files minmaxvalidator.java and validminmax.java under validators
+Renamed persistent storage from spring-boot-h2-db102 to SkateSocietyDB
 
 
+Task H - Validation Test of Min/Max of Inventory
+Add validation for between or at the maximum and minimum fields. The validation must include the following: • Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts. • Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum. • Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+FileName: OutsourcePartForm.html
+LineNumber:
+*31-32 added error message if inventory is below minimum or above max
+
+FileName: InhousePartForm.html
+LineNumber:
+*30-32 - added error message if inventory is below minimum or above max
 
 
+FileName: EnufPartsValidtor.java
+LineNumber:
+*37 added check if adding more products lowers part inventory below minimum
 
 
+Task I - Add at least 2 unit tests for the max and min fields of the PartTest class in the test package
 
+FileName: Parttest.java
+Line Number:
+*160-176 - added 2 tests(min/max inventory)
+
+
+Task J - Remove the class files for any unused validaotors in order to clean up your code
 
 
 
