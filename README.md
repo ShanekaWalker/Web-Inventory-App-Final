@@ -1,11 +1,11 @@
-# WESTERN GOVERNOR UNIVERSITY 
-## D287 – JAVA FRAMEWORKS
-
+Shaneka Walker
 # WESTERN GOVERNOR UNIVERSITY 
 ## D287 – JAVA FRAMEWORKS
 
 Task C - Customize HTML
 Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
+
+**NOTE** added style to mainscreen.html and about.html files at the end some line may have shifted downward. Also added comments to code throughout for better organization and communication. 
 
 File Name: Mainscreen.html
 Line Numbers:
@@ -109,7 +109,7 @@ Line Number:
 *160-176 - added 2 tests(min/max inventory)
 
 
-Task J - Remove the class files for any unused validaotors in order to clean up your code
-
+Task J - Remove the class files for any unused validators in order to clean up your code
+- deleted part validator never used, so deleted it. 
 
 
