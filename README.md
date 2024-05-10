@@ -108,6 +108,13 @@ part.java
 fixed code when adding min/max inventory to parts
 lines 35-39
 
+addproductcontroller.java
+fixed code for buy now button to properly buy and subtract from product inventory
+lines 180-192
+
+mainscreen.html
+fixed buynow button code to properly align with controller
+
 
 ---------------------------------------------------------------------------
 FileName: OutsourcePartForm.html

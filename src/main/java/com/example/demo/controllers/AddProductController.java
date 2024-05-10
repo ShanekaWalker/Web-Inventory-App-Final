@@ -177,20 +177,19 @@ public class AddProductController {
         return "productForm";
     }
 
-    @GetMapping("/Buy Now")
-    public String purchaseproduct(@RequestParam("productID") int theId, Model model){
-
-
+    @GetMapping("/purchase-product")
+    public String purchaseProduct(@RequestParam("productID") int theId, Model model){
         ProductService productService = context.getBean(ProductServiceImpl.class);
         Product product = productService.findById(theId);
 
-        if (product.getInv()!= 0) {
+        if (product.getInv() > 0) {
             int updatedInventory = product.getInv() - 1;
             product.setInv(updatedInventory);
             productService.save(product);
-            return "purchaseConfirmation";
+            return "purchaseConfirmation"; // Redirect to confirmation page after successful purchase
         } else {
-            return  "purchaseError";
+            model.addAttribute("errorMessage", "Product is out of stock."); // Add error message
+            return "purchaseError";
         }
     }
 }
