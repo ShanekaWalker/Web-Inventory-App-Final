@@ -86,8 +86,30 @@ Renamed persistent storage from spring-boot-h2-db102 to SkateSocietyDB
 
 
 Task H - Validation Test of Min/Max of Inventory
-Add validation for between or at the maximum and minimum fields. The validation must include the following: • Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts. • Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum. • Display error messages when adding and updating parts if the inventory is greater than the maximum.
+Add validation for between or at the maximum and minimum fields. 
+The validation must include the following: • Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts. • Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum. • Display error messages when adding and updating parts if the inventory is greater than the maximum.
 
+5/9/2024 - 
+
+fixed min/max validation code in part.java
+lines 36-39 should display error message if min is below 0 and max is above 100
+updated error code in inhousepartform.html
+lines 34-36
+16-25 added display
+
+addpartcontroller.java
+added validation against min/max inventory
+lines 73-91
+
+minmaxvalidator.java
+updated all code in this file for validation logic
+
+part.java
+fixed code when adding min/max inventory to parts
+lines 35-39
+
+
+---------------------------------------------------------------------------
 FileName: OutsourcePartForm.html
 LineNumber:
 *31-32 added error message if inventory is below minimum or above max

@@ -52,7 +52,9 @@ public class AddPartController {
             theModel.addAttribute("outsourcedpart",outsourcedPart);
             formtype="OutsourcedPartForm";
         }
+
         return formtype;
+
     }
 
     @GetMapping("/deletepart")
@@ -67,5 +69,29 @@ public class AddPartController {
             return "negativeerror";
         }
     }
+
+    @PostMapping("/updatePart")
+    public String updatePart(@Valid @ModelAttribute("part") Part part, BindingResult result, Model theModel) {
+        // Check for validation errors
+        if (result.hasErrors()) {
+            // Add the BindingResult containing validation errors to the model
+            theModel.addAttribute("org.springframework.validation.BindingResult.part", result);
+            return "InhousePartForm"; // Return the form view to display validation errors
+        }
+
+        // Validate inventory against minimum and maximum
+        if (part.getInv() < part.getMinInv()) {
+            result.rejectValue("inv", "error.inv", "Inventory cannot be lower than the minimum inventory");
+            return "InhousePartForm";
+        }
+
+        if (part.getInv() > part.getMaxInv()) {
+            result.rejectValue("inv", "error.inv", "Inventory cannot be higher than the maximum inventory");
+            return "InhousePartForm";
+        }
+        return "redirect:/showPartFormForUpdate";
+    }
+
+
 
 }

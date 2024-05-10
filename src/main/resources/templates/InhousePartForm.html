@@ -13,6 +13,17 @@
 <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
 
+    <!-- added display for validation errors-->
+    <div th:if="${#fields.hasErrors('inv')}" class="alert alert-danger">
+        <span th:errors="*{inv}"></span>
+    </div>
+    <div th:if="${#fields.hasErrors('minInv')}" class="alert alert-danger">
+        <span th:errors="*{minInv}"></span>
+    </div>
+    <div th:if="${#fields.hasErrors('maxInv')}" class="alert alert-danger">
+        <span th:errors="*{maxInv}"></span>
+    </div>
+
 <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
 
 <p><input type="text" path="price" th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
@@ -27,10 +38,9 @@
 
     <p><input type="text" th:field="*{partId}" placeholder="Part ID" class="form-control mb-4 col-4"/></p>
 
-    <div th:if="${#fields.hasAnyErrors()}">
-        <p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
+    <div th:if="${#fields.hasErrors('inv')}">
+        <p th:each="err : ${#fields.errors('inv')}" th:text="${err}">Error</p>
     </div>
-
 <p><input type="submit" value="Submit" /></p>
 </form>
 <p><errors path="price" cssClass=""error/><p>

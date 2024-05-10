@@ -4,6 +4,7 @@ import com.example.demo.validators.ValidDeletePart;
 import com.example.demo.validators.ValidMinMax;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -32,9 +33,10 @@ public abstract class Part implements Serializable {
     int inv;
 
     //Min and Max Inv added
-    @Min(value = 0, message = "Minimum inventory must be positive.")
-    int minInv;
-    int maxInv;
+    @Min(value = 0, message = "Minimum inventory must be 0 or greater.")
+    private int minInv;
+    @Max(value = 100, message = "Maximum inventory cannot exceed 100.")
+    private int maxInv;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
